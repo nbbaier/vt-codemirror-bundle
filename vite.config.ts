@@ -6,7 +6,7 @@ export default defineConfig({
       input: "./editor.ts",
       output: {
         dir: ".",
-        entryFileNames: "editor.js",
+        entryFileNames: "editor.mjs",
         format: "iife",
       },
     },
