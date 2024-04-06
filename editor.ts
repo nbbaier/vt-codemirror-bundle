@@ -1,9 +1,14 @@
+import { EditorState } from "@codemirror/state";
 import { EditorView, basicSetup } from "codemirror";
-import { sql, SQLDialect, SQLite } from "@codemirror/lang-sql";
+import { sql, SQLite } from "@codemirror/lang-sql";
 
-console.log("editor loaded");
+const initialText = 'console.log("hello, world")';
+const targetElement = document.querySelector("#editor")!;
 
 const editor = new EditorView({
-  extensions: [basicSetup, sql({ dialect: SQLite })],
-  parent: document.body,
+  parent: targetElement,
+  state: EditorState.create({
+    doc: initialText,
+    extensions: [basicSetup, sql({ dialect: SQLite })],
+  }),
 });
